@@ -1,0 +1,14 @@
+# ./ex02c
+start 5 tasks
+Task name : task1
+Task argument : 1
+Task name : task2
+Task argument : 2
+Task name : task3
+Task argument : 3
+Task name : task4
+Task argument : 4
+Task name : task5
+Task argument : 5
+
+>> The output doesn't differ from the result of exercise 2b. All tasks are started immediately (real time). Therefore, they are executed before the next task can be started (single core CPU).

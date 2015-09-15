@@ -1,0 +1,9 @@
+# ./ex02a
+start 5 tasks
+Task name : task1
+Task name : task2
+Task name : task3
+Task name : task4
+Task name : task5
+
+>> The tasks are executed in order.

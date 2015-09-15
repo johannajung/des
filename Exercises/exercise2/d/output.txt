@@ -1,0 +1,28 @@
+# ./ex02d
+start 3 tasks periodically
+Task name : task1
+Task name : task2
+Task name : task3
+end program by CTRL-C
+1
+1
+2
+3
+1
+2
+1
+3
+1
+2
+1
+1
+2
+3
+1
+1
+2
+3
+1
+2
+
+>> The tasks are started in order. After 1 second the output of the loops starts. At first 4 lines are printed. Then 3 lines appear every second. The tasks do not follow a specific order now. However, you can tell that task 1 prints more often, than task 2 and 3 because its period is shorter.
