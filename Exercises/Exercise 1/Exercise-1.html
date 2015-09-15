@@ -1,0 +1,1986 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="Exercise-1_files/filelist.xml">
+<link rel=Edit-Time-Data href="Exercise-1_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Ex. 1 The Basics of Real-Time Linux</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PersonName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="stockticker"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Hooman</o:Author>
+  <o:LastAuthor>Hooman</o:LastAuthor>
+  <o:Revision>15</o:Revision>
+  <o:TotalTime>31</o:TotalTime>
+  <o:Created>2009-08-28T15:16:00Z</o:Created>
+  <o:LastSaved>2009-08-29T14:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2914</o:Words>
+  <o:Characters>16612</o:Characters>
+  <o:Company> x</o:Company>
+  <o:Lines>138</o:Lines>
+  <o:Paragraphs>38</o:Paragraphs>
+  <o:CharactersWithSpaces>19488</o:CharactersWithSpaces>
+  <o:Version>10.6825</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:0pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:0pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:0pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+span.externaltext
+	{mso-style-name:externaltext;}
+span.cmr-9
+	{mso-style-name:cmr-9;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:154881663;
+	mso-list-template-ids:1180859084;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:179054935;
+	mso-list-template-ids:1576418414;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:344523765;
+	mso-list-template-ids:-37734928;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3
+	{mso-list-id:348917866;
+	mso-list-template-ids:-1453689322;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4
+	{mso-list-id:533662174;
+	mso-list-template-ids:-2139618570;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5
+	{mso-list-id:544756708;
+	mso-list-template-ids:635857720;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l6
+	{mso-list-id:547031935;
+	mso-list-template-ids:1583120548;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7
+	{mso-list-id:712342340;
+	mso-list-template-ids:1812381946;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l7:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8
+	{mso-list-id:770586290;
+	mso-list-template-ids:-256353854;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l8:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l9
+	{mso-list-id:990598204;
+	mso-list-template-ids:-1716729880;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l10
+	{mso-list-id:995496900;
+	mso-list-template-ids:-132228786;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:1083331739;
+	mso-list-template-ids:535621270;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l11:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l12
+	{mso-list-id:1104231113;
+	mso-list-template-ids:-337593962;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l13
+	{mso-list-id:1122379592;
+	mso-list-template-ids:941262678;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l13:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l14
+	{mso-list-id:1150101337;
+	mso-list-template-ids:-1702848438;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15
+	{mso-list-id:1221669760;
+	mso-list-template-ids:-60544912;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l16
+	{mso-list-id:1351642405;
+	mso-list-template-ids:-887556560;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l16:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l16:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l16:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l16:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l16:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l16:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l16:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l16:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17
+	{mso-list-id:1504008835;
+	mso-list-template-ids:831666878;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l17:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l18
+	{mso-list-id:1520699465;
+	mso-list-template-ids:799429574;}
+@list l18:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l19
+	{mso-list-id:1572033374;
+	mso-list-template-ids:215247446;}
+@list l19:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l20
+	{mso-list-id:1575048955;
+	mso-list-template-ids:1333970032;}
+@list l20:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l20:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l21
+	{mso-list-id:1612281129;
+	mso-list-template-ids:-770918056;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l22
+	{mso-list-id:1649626735;
+	mso-list-template-ids:2008322976;}
+@list l22:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l22:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l22:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l22:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l22:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l22:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l22:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l22:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l22:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l23
+	{mso-list-id:1702320450;
+	mso-list-template-ids:-243393142;}
+@list l23:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l23:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l23:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l23:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l23:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l23:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l23:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l23:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l23:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24
+	{mso-list-id:1880430483;
+	mso-list-template-ids:308606832;}
+@list l24:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l24:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l24:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l25
+	{mso-list-id:1944681174;
+	mso-list-template-ids:1325714284;}
+@list l25:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l25:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l25:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l26
+	{mso-list-id:1953122884;
+	mso-list-template-ids:-1026546706;}
+@list l26:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l27
+	{mso-list-id:1958640894;
+	mso-list-template-ids:-642730640;}
+@list l27:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l27:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l28
+	{mso-list-id:2003777502;
+	mso-list-template-ids:583812274;}
+@list l28:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l28:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l29
+	{mso-list-id:2146728290;
+	mso-list-template-ids:-276015800;}
+@list l29:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l29:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0pt;}
+ul
+	{margin-bottom:0pt;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0pt 5.4pt 0pt 5.4pt;
+	mso-para-margin:0pt;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'>&nbsp;<st1:place><st1:PlaceName><span
+  class=SpellE>Radboud</span></st1:PlaceName> <st1:PlaceType>University</st1:PlaceType></st1:place>
+<st1:City><st1:place><span class=SpellE>Nijmegen</span></st1:place></st1:City></h1>
+
+<h1 align=center style='text-align:center'>Real-time Linux (<span class=SpellE>Xenomai</span>)</h1>
+
+<h1 align=center style='text-align:center'>Exercise #1: The Basics of Real-Time
+Linux</h1>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=3 width="100%" align=center>
+
+</div>
+
+<h2>Real-Time Linux Introduction</h2>
+
+<p class=MsoNormal>Linux is a free Unix-like operating system that runs on a variety
+of platforms, including PCs. Numerous Linux distributions such as Red Hat, <span
+class=SpellE>Debian</span> and Mandrake bundle the Linux OS with tools,
+productivity software, games, etc. </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'>The Linux scheduler, like
+     that of other <span class=SpellE>OSes</span> such as Windows or <span
+     class=SpellE>MacOS</span>, is designed for best average response, so it
+     feels fast and interactive even when running many programs. </li>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l4 level2 lfo3;tab-stops:list 72.0pt'>However, it doesn't
+      guarantee that any particular task will always run by a given deadline. A
+      task may be suspended for an arbitrarily long time, for example while a
+      Linux device driver services a disk interrupt.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l4 level2 lfo3;tab-stops:list 72.0pt'>Scheduling guarantees
+      are offered by real-time operating systems (<span class=SpellE>RTOSes</span>),
+      such as QNX, <span class=SpellE>LynxOS</span> or <span class=SpellE>VxWorks</span>.
+      <span class=SpellE>RTOSes</span> are typically used for control or
+      communications applications, not for general purpose computing.</li>
+ </ul>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'>Linux has been adapted for
+     real-time support. These adaptations are termed &quot;Real-Time
+     Linux&quot; (RT Linux).</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'>Numerous versions of RT
+     Linux are available, free or commercial. Three commonly available free RT
+     Linux versions are</li>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l4 level2 lfo3;tab-stops:list 72.0pt'><span class=SpellE><span
+      class=GramE>RTLinux</span></span><span class=GramE>,</span> developed by
+      New Mexico Tech and now maintained by <a
+      href="http://en.wikipedia.org/wiki/Wind_River_Systems"
+      title="Wind River Systems">Wind River Systems</a>.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l4 level2 lfo3;tab-stops:list 72.0pt'>RTAI, The Real-Time
+      Application Interface (RTAI), developed by the Milan <span class=SpellE>Polytechnical</span>
+      University and available at&nbsp;<a href="https://www.rtai.org/">https://www.rtai.org/</a>.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l4 level2 lfo3;tab-stops:list 72.0pt'><span class=SpellE>Xenomai</span>,
+      a spin off of<span class=GramE>&nbsp; RTAI</span> Linux. While RTAI is
+      focused on lowest technically feasible latencies, <span class=SpellE>Xenomai</span>
+      also considers clean extensibility (RTOS skins), portability, and
+      maintainability as very important goals. It is available at <a
+      href="http://www.xenomai.org/" title="http://www.xenomai.org/"
+      rel=nofollow>www.xenomai.org</a><span class=externaltext>.</span></li>
+ </ul>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo3;tab-stops:list 36.0pt'>These RT Linux systems are
+     patches to the basic Linux kernel source code. Instructions for building
+     an RT Linux system from <span class=GramE>a the</span> Linux source code
+     are provided with these RT Linux systems. Briefly, this involves setting
+     up the basic Linux system, getting the latest Linux kernel source code
+     from <a href="http://www.kernel.org/">www.kernel.org</a>, patching the
+     kernel source code, and compiling the patched kernel.</li>
+</ul>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=3 width="100%" align=center>
+
+</div>
+
+<h2>Objectives</h2>
+
+<p>The following are the primary objectives of this exercise:</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l24 level1 lfo6;tab-stops:list 36.0pt'>To learn how <span
+     class=SpellE>Xenomai</span> real-time Linux works and to build a small <span
+     class=SpellE>Xenomai</span> real-time task.</li>
+</ul>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=3 width="100%" align=center>
+
+</div>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>How does RT Linux work?</h2>
+
+<p class=MsoNormal>The general idea of RT Linux is that a small real-time
+kernel runs beneath Linux, meaning that the real-time kernel has a higher
+priority than the Linux kernel. Real-time tasks are executed by the real-time
+kernel, and normal Linux programs are allowed to run when no real-time tasks
+have to be executed. Linux can be considered as the idle task of the real-time
+scheduler. When this idle task runs, it executes its own scheduler and
+schedules the normal Linux processes.&nbsp; Since the real-time kernel has a
+higher priority, a normal Linux process is preempted when a real-time task
+becomes ready to run and the real-time task is executed immediately. </p>
+
+<h2>How is the real-time kernel given higher priority than Linux kernel?</h2>
+
+<p class=MsoNormal>Basically, an operating system is driven by interrupts,
+which can be considered as the heartbeats of a computer: </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo9;tab-stops:list 36.0pt'>All programs running in an
+     OS are scheduled by a scheduler <span class=GramE>which</span> is driven
+     by timer interrupts of a clock to reschedule at certain times. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo9;tab-stops:list 36.0pt'>An executing program can block
+     or voluntary give up the CPU in which case the scheduler is informed by
+     means of <span class=GramE>a software</span> interrupt (system call). </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo9;tab-stops:list 36.0pt'>Hardware can generate
+     interrupts to interrupt the normal scheduled work of the OS for fast
+     handling of hardware.</li>
+</ul>
+
+<p class=MsoNormal>RT Linux uses the flow of interrupts to give the real-time
+kernel a higher priority than the Linux kernel: </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l17 level1 lfo12;tab-stops:list 36.0pt'>When an interrupt
+     arrives, it is first given to the real-time kernel, and not to the Linux
+     kernel. But interrupts are stored to give them later to Linux when the
+     real-time kernel is done.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l17 level1 lfo12;tab-stops:list 36.0pt'>As first in row, the
+     real-time kernel can run its real-time tasks driven by these interrupts.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l17 level1 lfo12;tab-stops:list 36.0pt'>Only when the real-time
+     kernel is not running anything, the interrupts which were stored are
+     passed on to the Linux kernel.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l17 level1 lfo12;tab-stops:list 36.0pt'>As second in row, Linux
+     can schedule its own processes driven by these interrupt.</li>
+</ul>
+
+<p class=MsoNormal>Hence, when a normal Linux program runs and a new interrupt
+arrives:</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l27 level1 lfo15;tab-stops:list 36.0pt'>it is first handled by an
+     interrupt handler set by the real-time kernel;</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l27 level1 lfo15;tab-stops:list 36.0pt'>the code in the interrupt
+     handler awakes a real-time task;</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l27 level1 lfo15;tab-stops:list 36.0pt'>immediately after the
+     interrupt handler, the real-time scheduler is called ;</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l27 level1 lfo15;tab-stops:list 36.0pt'><span class=GramE>the</span>
+     real-time scheduler observes that another real-time task is ready to run,
+     so it puts the Linux kernel to sleep, and awakes the real-time task.</li>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo18;tab-stops:list 36.0pt'>Hence, to the real-time
+     kernel and Linux kernel&nbsp;coexist on a single machine a special way of
+     passing of the interrupts between real-time kernel and the Linux kernel is
+     needed. Each flavor of RT Linux does this is in its own way. <span
+     class=SpellE>Xenomai</span>&nbsp;uses an interrupt pipeline from the <a
+     href="http://home.gna.org/adeos/"><span class=SpellE>Adeos</span> project</a>.
+     For more information, see also <a
+     href="http://www.xenomai.org/documentation/xenomai-2.3/pdf/Life-with-Adeos-rev-B.pdf">Life
+     with <span class=SpellE>Adeos</span></a>.</li>
+</ul>
+
+<h2>RT Linux Tasks are&nbsp;not Linux Programs</h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo21;tab-stops:list 36.0pt'>In real-time Linux we can
+     make a real-time program by programming real-time threads. None-real-time
+     programs in real-time Linux just use the conventional Linux threads.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo21;tab-stops:list 36.0pt'>A real-time task can be
+     executed in kernel space using a kernel module, but it can also be
+     executed in user space using a normal C program.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo21;tab-stops:list 36.0pt'>Running in user space
+     instead of in kernel space gives a little extra overhead, but with the
+     following advantages :</li>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l8 level2 lfo21;tab-stops:list 72.0pt'>A bug in a kernel
+      module can crash the whole <span class=GramE>system,</span> however a bug
+      in a user space program can only crash the program.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l8 level2 lfo21;tab-stops:list 72.0pt'>In a kernel model
+      one can only use&nbsp;the real-time <st1:stockticker>API</st1:stockticker>
+      and the limited kernel <st1:stockticker>API</st1:stockticker>, but in a
+      real-time user space program the real-time <st1:stockticker>API</st1:stockticker>
+      and the whole Linux <st1:stockticker>API</st1:stockticker> can be used!
+      However when using the Linux <st1:stockticker>API</st1:stockticker> in
+      user space, the program cannot be scheduled by the real-time scheduler
+      (HARD real-time) but must be scheduled by the Linux scheduler (<st1:stockticker>SOFT</st1:stockticker>
+      real-time). So calling a Linux <st1:stockticker>API</st1:stockticker>
+      call from a real-time user space task will degrade its performance from
+      HARD to <st1:stockticker>SOFT</st1:stockticker> real-time. After the call
+      the task will return to the real-time scheduler.</li>
+ </ul>
+</ul>
+
+<h2><span class=SpellE>Xenomai</span> </h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l22 level1 lfo24;tab-stops:list 36.0pt'>The <a
+     href="http://www.xenomai.org/"><span class=SpellE>Xenomai</span> project</a>
+     was launched in August 2001.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l22 level1 lfo24;tab-stops:list 36.0pt'><span class=SpellE>Xenomai</span>
+     is based on an abstract <a href="http://en.wikipedia.org/wiki/RTOS"
+     title=RTOS>RTOS</a> core, usable for building any kind of real-time
+     interfaces, over a nucleus which exports a set of generic RTOS services.
+     Any number of RTOS personalities called “skins” can then be built over the
+     nucleus, providing their own specific interface to the applications, by
+     using the services of a single generic core to implement it.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l22 level1 lfo24;tab-stops:list 36.0pt'>The following skins on
+     the generic core are implemented :<o:p></o:p></li>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l22 level2 lfo24;tab-stops:list 72.0pt'><a
+      href="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/pse51-skin.txt?rev=&amp;view=auto"
+      title="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/pse51-skin.txt?rev=&amp;view=auto"
+      rel=nofollow>POSIX</a> <o:p></o:p></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l22 level2 lfo24;tab-stops:list 72.0pt'><a
+      href="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/psos-skin.txt?rev=&amp;view=auto"
+      title="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/psos-skin.txt?rev=&amp;view=auto"
+      rel=nofollow><span class=SpellE>pSOS</span>+</a>&nbsp; <o:p></o:p></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l22 level2 lfo24;tab-stops:list 72.0pt'><a
+      href="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/vxworks-skin.txt?rev=&amp;view=auto"
+      title="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/vxworks-skin.txt?rev=&amp;view=auto"
+      rel=nofollow><span class=SpellE>VxWorks</span></a>&nbsp; <o:p></o:p></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l22 level2 lfo24;tab-stops:list 72.0pt'><a
+      href="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/vrtx-skin.txt?rev=&amp;view=auto"
+      title="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/vrtx-skin.txt?rev=&amp;view=auto"
+      rel=nofollow>VRTX</a>&nbsp; </li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l22 level2 lfo24;tab-stops:list 72.0pt'>native: the <span
+      class=SpellE>Xenomai</span> skin <o:p></o:p></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l22 level2 lfo24;tab-stops:list 72.0pt'><a
+      href="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/uITRON-skin.txt?rev=&amp;view=auto"
+      title="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/uITRON-skin.txt?rev=&amp;view=auto"
+      rel=nofollow><span class=SpellE>uITRON</span></a> <o:p></o:p></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l22 level2 lfo24;tab-stops:list 72.0pt'><a
+      href="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/rtai-skin.txt?rev=&amp;view=auto"
+      title="http://svn.gna.org/viewcvs/xenomai/trunk/doc/txt/rtai-skin.txt?rev=&amp;view=auto"
+      rel=nofollow>RTAI</a>: only in kernel threads </li>
+ </ul>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l22 level1 lfo24;tab-stops:list 36.0pt'><span class=SpellE>Xenomai</span>
+     allows <span class=GramE>to run</span> real-time threads either strictly
+     in kernel space, or within the address space of a Linux process. A
+     real-time task in user space still has the benefit of memory protection,
+     but is scheduled by <span class=SpellE>Xenomai</span> <span class=GramE>directly,</span>
+     and no longer by the Linux kernel. The worst case scheduling latency of
+     such kind of task is always near to the hardware limits and predictable,
+     since <span class=SpellE>Xenomai</span> is not bound to synchronizing with
+     the Linux kernel activity in such a <span class=GramE>context,</span> and
+     can preempt any regular Linux activity with no delay. Hence, he preferred
+     execution environment for <span class=SpellE>Xenomai</span> applications
+     is user space context.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l22 level1 lfo24;tab-stops:list 36.0pt'>But there might be a few
+     cases where running some of the real-time code embodied into kernel
+     modules is required, especially with legacy systems or very low-end
+     platforms with under-performing MMU hardware. For this reason, <span
+     class=SpellE>Xenomai's</span> native <st1:stockticker>API</st1:stockticker>
+     provides the same set of real-time services in a seamless manner to
+     applications, regardless of their execution space. Additionally, some
+     applications may need real-time activities in both spaces to <span
+     class=GramE>cooperate,</span> therefore special care has been taken to
+     allow the latter to work on the exact same set of <st1:stockticker>API</st1:stockticker>
+     objects.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l22 level1 lfo24;tab-stops:list 36.0pt'>In our terminology, the
+     terms &quot;thread&quot; and &quot;task&quot; have the same meaning. When
+     talking about a <span class=SpellE>Xenomai</span> task we refer to
+     real-time task in user space, i.e., within the address space of a Linux
+     process, not to be confused with regular Linux task/thread.</li>
+</ul>
+
+<h2><span class=SpellE>Xenomai</span> <st1:stockticker>API</st1:stockticker></h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l23 level1 lfo27;tab-stops:list 36.0pt'>In our exercise we will
+     use the native <span class=SpellE>Xenomai</span> skin and run real-time tasks
+     in user space because working with them is easier and still HARD
+     real-time.&nbsp;&nbsp; </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l23 level1 lfo27;tab-stops:list 36.0pt'>The <a
+     href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/">Native <span
+     class=SpellE>Xenomai</span> API </a>is flexible and well documented.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l23 level1 lfo27;tab-stops:list 36.0pt'>The most important
+     characteristics of the <span class=SpellE>Xenomai</span> <st1:stockticker>API</st1:stockticker>
+     are :</li>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l23 level2 lfo27;tab-stops:list 72.0pt'><b>Context independence</b></li>
+ </ul>
+</ul>
+
+<div style='margin-left:24.0pt'>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:72.0pt'><span class=SpellE>Xenomai's</span> native <st1:stockticker>API</st1:stockticker>
+provides the same set of real-time services in a seamless manner to application
+regardless of their execution mode is user or kernel mode.&nbsp;</p>
+
+</div>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l23 level2 lfo27;tab-stops:list 72.0pt'><b>Seamless topology</b></li>
+ </ul>
+</ul>
+
+<div style='margin-left:24.0pt'>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:72.0pt'><span class=SpellE>Xenomai</span> objects (<span
+class=SpellE>eg</span>. a semaphore, task, etc<span class=GramE>..)</span> are
+always reachable even when the location of the object is another execution
+space than were the task using it is running. <span class=GramE>e.g</span>.
+user space task running in user space can use a semaphore which is stored in
+kernel space.<br>
+To this end, each category of services in <span class=SpellE>Xenomai's</span>
+native <st1:stockticker>API</st1:stockticker> defines a uniform descriptor type
+to represent the objects it manages. For instance, a task will always be
+represented by a RT_TASK descriptor, a message queue by a RT_QUEUE descriptor,
+and a semaphore by a RT_<st1:stockticker>SEM</st1:stockticker> descriptor,
+regardless of the execution space from which they are used.<br>
+<span class=SpellE>Xenomai</span> uses a unified registry, to index each object
+descriptor under a symbolic name given by the user. By doing this, <span
+class=SpellE>Xenomai</span> enables you to retrieve any descriptor associated
+with a registered object in any location of your application.</p>
+
+</div>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l23 level1 lfo27;tab-stops:list 36.0pt'>See <a
+     href="http://www.xenomai.org/documentation/xenomai-2.3/pdf/Native-API-Tour-rev-C.pdf"
+     title="http://www.xenomai.org/documentation/branches/v2.3.x/pdf/Native-API-Tour-rev-C.pdf"
+     rel=nofollow>Native API Tour</a> for more information about <span
+     class=SpellE>Xenomai's</span> native API.</li>
+</ul>
+
+<h2>C is the Preferred Language</h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo32;tab-stops:list 36.0pt'>Linux is written in the C
+     programming language (with some assembly language), as is <span
+     class=SpellE>Xenomai</span>, so C is the preferred language for writing RT
+     Linux programs.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo32;tab-stops:list 36.0pt'>Other languages (e.g.,
+     C++) can be used. For instance, see the<a
+     href="http://home.gna.org/xenomm/"> <span class=SpellE>Xeno</span>--
+     project</a> which <span class=cmr-9>is providing a thin object-oriented
+     software</span> <span class=cmr-9>interface to <span class=SpellE>Xenomai’s</span>
+     C-based skins.</span>&nbsp;</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo32;tab-stops:list 36.0pt'>The examples in this
+     tutorial are all written in C.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo32;tab-stops:list 36.0pt'>C programs are normally
+     compiled into full executable programs </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo32;tab-stops:list 36.0pt'>In C, a program's
+     &quot;entry point&quot; where execution begins is a function called <span
+     class=GramE>'main(</span>)'.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo32;tab-stops:list 36.0pt'>Each real-time task is
+     associated with a C function that is called when the task is scheduled to
+     run.&nbsp;</li>
+</ul>
+
+<h2>Creating a task</h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo35;tab-stops:list 36.0pt'>When you create a
+     real-time task in <span class=SpellE>Xenomai</span> the RT_TASK structure
+     is used as the descriptor to refer to this task.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo35;tab-stops:list 36.0pt'>An RT_TASK data structure
+     is used to hold all the information about a task:</li>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>the task
+      function&nbsp;to be executed by the real-time task,</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>any initial argument
+      passed to it,</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>the size of the
+      stack allocated for its variables,</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>its priority,</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>whether or not it
+      uses floating-point math,</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'><span class=GramE>and</span>
+      a &quot;signal handler&quot; that will be called when the task becomes
+      active.</li>
+ </ul>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo35;tab-stops:list 36.0pt'>The task is created by calling</li>
+</ul>
+
+<div style='margin-left:24.0pt'><pre style='margin-left:36.0pt'><span
+class=SpellE><span class=GramE>int</span></span>&nbsp;<a
+href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#g03387550693c21d0223f739570ccd992"><span
+class=SpellE>rt_task_create</span></a> (RT_TASK *task, const char *name, <span
+class=SpellE>int</span> <span class=SpellE>stack_size</span>, <span
+class=SpellE>int</span> priority, <span class=SpellE>int</span> mode)</pre></div>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>'<span class=GramE>task</span>'
+      is a pointer to an RT_TASK type structure which must have been declared
+      before and whose structure is filled.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>'<span class=GramE>name</span>'
+      &nbsp;is an&nbsp; ASCII string standing for the symbolic name of the
+      task. This symbolic name you can use to retrieve the task structure
+      anywhere else in your code by calling the&nbsp;<a
+      href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#gb6bd973c22a6f66e28653922c53e0385"><span
+      class=SpellE>rt_task_<span class=GramE>bind</span></span><span
+      class=GramE>(</span>)</a> function.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>'<span class=SpellE>stack_size</span>'
+      is the size of the stack to be used by the new task.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>'<span class=GramE>priority</span>'
+      is the priority to be given the task. The highest priority is 99, while
+      the lowest is 1.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l7 level2 lfo35;tab-stops:list 72.0pt'>'mode' is a set of
+      flags which affect the task :</li>
+  <ul type=square>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l7 level3 lfo35;tab-stops:list 108.0pt'>T_<st1:stockticker>FPU</st1:stockticker>
+       allows the task to use the <st1:stockticker>FPU</st1:stockticker>
+       (Floating Point Unit) whenever available on the platform. This flag is
+       forced for user-space tasks.</li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l7 level3 lfo35;tab-stops:list 108.0pt'>T_SUSP causes the
+       task to start in suspended mode. In such a case, the thread will have to
+       be explicitly resumed using the <a
+       href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#g1fab1aa24ef6f199546fd9669ae711be"><span
+       class=SpellE>rt_task_<span class=GramE>resume</span></span><span
+       class=GramE>(</span>)</a> service for its execution to actually begin.</li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l7 level3 lfo35;tab-stops:list 108.0pt'>T_<span
+       class=GramE>CPU(</span><span class=SpellE>cpuid</span>) specifies that
+       the new task runs on the CPU with number <span class=SpellE>cpuid</span>.
+       CPU identifiers range from 0 to RTHAL_NR_CPUS - 1 (inclusive).</li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l7 level3 lfo35;tab-stops:list 108.0pt'>T_JOINABLE (user-space
+       only) allows another task to wait on the termination of the new task.
+       This implies that <a
+       href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#g8c77d57638578a126812e29429f61fe7"><span
+       class=SpellE>rt_task_<span class=GramE>join</span></span><span
+       class=GramE>(</span>)</a> is actually called for this task to clean up
+       any user-space located resources after its termination.</li>
+  </ul>
+ </ul>
+</ul>
+
+<h2>Starting a task</h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l11 level1 lfo39;tab-stops:list 36.0pt'>A task can be started by
+     calling :</li>
+</ul>
+
+<pre style='margin-left:60.0pt'><span class=SpellE><span class=GramE>int</span></span>&nbsp;<a
+href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#gc9638918b8310a430088f5c9a04d2bb7"><span
+class=SpellE>rt_task_start</span></a> (RT_TASK *task, void(*<span class=SpellE>task_func</span>)(void *<span
+class=SpellE>arg</span>), void *<span class=SpellE>arg</span>)</pre>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo39;tab-stops:list 72.0pt'>'<span class=GramE>task</span>'
+      is a pointer to an RT_TASK type structure which must be already
+      initialized by a call to&nbsp;<a
+      href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#g03387550693c21d0223f739570ccd992">rt_task_create()</a>.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo39;tab-stops:list 72.0pt'>'<span
+      class=SpellE>task_function</span>' is the&nbsp;the task function to be
+      executed by this real-time task.</li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo39;tab-stops:list 72.0pt'>'<span
+      class=SpellE><span class=GramE>arg</span></span>' is the void pointer
+      argument given to the task function.</li>
+ </ul>
+</ul>
+
+<p class=MsoNormal style='margin-left:36.0pt'>If you did specify T_SUSP as a
+mode flag to&nbsp;<a
+href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#g03387550693c21d0223f739570ccd992">rt_task_<span
+class=GramE>create(</span>)</a>, the task will be started in a suspended mode.
+In that case <span class=GramE>you &nbsp;have</span> to explicitly resume the
+task with&nbsp; <a
+href="http://www.xenomai.org/documentation/xenomai-2.4/html/api/group__task.html#g1fab1aa24ef6f199546fd9669ae711be"><span
+class=SpellE>rt_task_resume</span>()</a>. Otherwise, the real time task is
+ready to execute immediately. </p>
+
+<h2>Hello World</h2>
+
+<p>The following &quot;ex01.c&quot; C code illustrates the creating and start of
+a &quot;demo&quot; task which writes a message.</p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>#include &lt;<span
+class=SpellE>stdio.h</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>#include &lt;<span
+class=SpellE>signal.h</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>#include &lt;<span
+class=SpellE>unistd.h</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>#include &lt;sys/<span
+class=SpellE>mman.h</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>#include &lt;native/<span
+class=SpellE>task.h</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>#include &lt;native/<span
+class=SpellE>timer.h</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>#<span class=GramE>include<span
+style='mso-spacerun:yes'>  </span>&lt;</span><span class=SpellE>rtdk.h</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>RT_TASK <span class=SpellE>demo_task</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+class=GramE><span style='font-size:10.0pt;font-family:"Courier New"'>void</span></span><span
+style='font-size:10.0pt;font-family:"Courier New"'> demo(void *<span
+class=SpellE>arg</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>RT_TASK *<span class=SpellE>curtask</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>RT_TASK_</span><st1:stockticker><span
+ style='font-size:10.0pt;font-family:"Courier New"'>INFO</span></st1:stockticker><span
+style='font-size:10.0pt;font-family:"Courier New"'> <span class=SpellE>curtaskinfo</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>// hello world<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>rt_<span class=GramE>printf</span></span><span
+class=GramE>(</span>&quot;Hello World!\n&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>// inquire current task<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE><span class=GramE>curtask</span></span><span
+class=GramE>=</span><span class=SpellE>rt_task_self</span>();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>rt_task_<span class=GramE>inquire</span></span><span
+class=GramE>(</span><span class=SpellE>curtask,&amp;curtaskinfo</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>// print task name<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>rt_<span class=GramE>printf</span></span><span
+class=GramE>(</span>&quot;Task name : %s \n&quot;, <span class=SpellE>curtaskinfo.name</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+class=SpellE><span class=GramE><span style='font-size:10.0pt;font-family:"Courier New"'>int</span></span></span><span
+style='font-size:10.0pt;font-family:"Courier New"'> main(<span class=SpellE>int</span>
+<span class=SpellE>argc</span>, char* <span class=SpellE>argv</span>[])<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=GramE>char<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>str</span></span>[10] ;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>// <span class=GramE>Perform</span> auto-init
+of <span class=SpellE>rt_print</span> buffers if the task doesn't do so<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>rt_print_auto_<span
+class=GramE>init</span></span><span class=GramE>(</span>1);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>// Lock <span class=GramE>memory :</span>
+avoid memory swapping for this program<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE><span class=GramE>mlockall</span></span><span
+class=GramE>(</span></span><st1:stockticker><span style='font-size:10.0pt;
+ font-family:"Courier New"'>MCL</span></st1:stockticker><span style='font-size:
+10.0pt;font-family:"Courier New"'>_CURRENT|</span><st1:stockticker><span
+ style='font-size:10.0pt;font-family:"Courier New"'>MCL</span></st1:stockticker><span
+style='font-size:10.0pt;font-family:"Courier New"'>_FUTURE);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>rt_<span class=GramE>printf</span></span><span
+class=GramE>(</span>&quot;start task\n&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>/*<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>* Arguments: &amp;task,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*<span style='mso-spacerun:yes'>           
+</span><span class=GramE>name</span>,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*<span style='mso-spacerun:yes'>           
+</span>stack size (0=default),<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*<span style='mso-spacerun:yes'>           
+</span><span class=GramE>priority</span>,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*<span style='mso-spacerun:yes'>           
+</span><span class=GramE>mode</span> (</span><st1:stockticker><span
+ style='font-size:10.0pt;font-family:"Courier New"'>FPU</span></st1:stockticker><span
+style='font-size:10.0pt;font-family:"Courier New"'>, start suspended, ...)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE><span class=GramE>sprintf</span></span><span
+class=GramE>(</span><span class=SpellE>str,&quot;hello</span>&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>rt_task_<span class=GramE>create</span></span><span
+class=GramE>(</span>&amp;<span class=SpellE>demo_task</span>, <span
+class=SpellE>str</span>, 0, 50, 0);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span>/*<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>* Arguments: &amp;task,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*<span style='mso-spacerun:yes'>           
+</span><span class=GramE>task</span> function,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*<span style='mso-spacerun:yes'>           
+</span><span class=GramE>function</span> argument<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>   </span>*/<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'><span
+style='mso-spacerun:yes'>  </span><span class=SpellE>rt_task_<span class=GramE>start</span></span><span
+class=GramE>(</span>&amp;<span class=SpellE>demo_task</span>, &amp;demo, 0);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New"'>}<o:p></o:p></span></p>
+
+<pre style='margin-bottom:12.0pt'><o:p>&nbsp;</o:p></pre>
+
+<p class=MsoNormal>In the program above, memory is locked by calling </p>
+
+<pre><span style='mso-spacerun:yes'>    </span><span class=SpellE><span
+class=GramE>mlockall</span></span><span class=GramE>(</span><st1:stockticker>MCL</st1:stockticker>_CURRENT|<st1:stockticker>MCL</st1:stockticker>_FUTURE);</pre>
+
+<p class=MsoNormal><span class=GramE>so</span> that it cannot be swapped to
+disk. Preventing swapping is a must when real-time performance must be reached.
+Hence, <span class=SpellE>Xenomai</span> generates a warning when this is
+forgotten when its <st1:stockticker>API</st1:stockticker> is called. </p>
+
+<h2>The&nbsp;<span class=SpellE>rdtk</span> real-time printing library</h2>
+
+<p class=MsoNormal>Note that in the above code we used the command '<span
+class=SpellE><b>rt_<span class=GramE>printf</span></b></span><span class=GramE><b>(</b></span><b>)</b>'
+instead of the familiar '<span class=SpellE>printf</span>()' command. We did
+not use <span class=GramE>'<span class=SpellE>printf</span>(</span>)' because
+it uses Linux <span class=SpellE>syscalls</span> and therefore terribly
+slows&nbsp;down the real-time thread. Instead we use the '<span class=SpellE>rt_printf</span>'
+command<span class=GramE>&nbsp; from</span> the <span class=SpellE><b>rdtk</b></span>
+real-time printing&nbsp; library. This is a stand-alone real-time library for <span
+class=SpellE>printf</span> services. It is embedded into the <span
+class=SpellE>Xenomai</span> user space part but actually doesn't depend on any <span
+class=SpellE>Xenomai</span> service, just using the plain POSIX <st1:stockticker>API</st1:stockticker>.
+The <span class=SpellE>librtprint</span> <st1:stockticker>API</st1:stockticker>
+looks much like the <span class=SpellE><span class=GramE>printf</span></span><span
+class=GramE>(</span>3) man page:</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo43;tab-stops:list 36.0pt'><span class=SpellE>rt_vfprintf</span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo43;tab-stops:list 36.0pt'><span class=SpellE>rt_vprintf</span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo43;tab-stops:list 36.0pt'><span class=SpellE>rt_fprintf</span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo43;tab-stops:list 36.0pt'><span class=SpellE>rt_printf</span></li>
+</ul>
+
+<p class=MsoNormal>The basic idea of <span class=SpellE>librdtk</span> is to
+keep the print side as cheap as possible: no locks, no <span class=SpellE>syscalls</span>
+at all. Each thread that uses <span class=SpellE>rt_printf</span> &amp; friends
+has its own local ring buffer. A central (per process) non-RT output thread
+takes care of forwarding the content of all thread ring buffers to the output
+streams. The message order is preserved loosely by a global sequence counter
+(arch-dependent CPU-wide or system-wide <span class=SpellE>atomic_inc_return</span>
+might be used in the future). The output thread uses periodic polling (default:
+10 Hz) to avoid the need for special <span class=SpellE>signalling</span>
+mechanisms.<br>
+To start the non-RT output thread one always has to call the following at the
+beginning of a <span class=SpellE>Xenomai</span> <span class=SpellE><span
+class=GramE>programma</span></span><span class=GramE> :</span></p>
+
+<pre style='margin-left:24.0pt'><span class=SpellE>rt_print_auto_<span
+class=GramE>init</span></span><span class=GramE>(</span>1);</pre>
+
+<p class=MsoNormal><span class=GramE>This performs auto-init of the <span
+class=SpellE>rt_print</span> buffers and start</span> the non-RT output thread.</p>
+
+<h2>Compiling a <span class=SpellE>Xenomai</span> program</h2>
+
+<p>To compile the above program, first obtain the CFLAGS and LDFLAGS by
+running&nbsp; </p>
+
+<pre style='margin-left:24.0pt'><span lang=PT-BR style='mso-ansi-language:PT-BR'>&gt; xeno-config --xeno-cflags<o:p></o:p></span></pre>
+
+<p><span lang=PT-BR style='mso-ansi-language:PT-BR'>and <o:p></o:p></span></p>
+
+<pre style='margin-left:24.0pt'><span lang=PT-BR style='mso-ansi-language:PT-BR'>&gt; xeno-config --xeno-ldflags<o:p></o:p></span></pre>
+
+<p>To set these flags, use </p>
+
+<pre style='margin-left:24.0pt'>&gt; export CFLAGS=`<span class=SpellE>xeno-config</span> --<span
+class=SpellE>xeno-cflags</span>`</pre>
+
+<p><span class=GramE>and</span> </p>
+
+<pre style='margin-left:24.0pt'>&gt; export LDFLAGS=`<span class=SpellE>xeno-config</span> --<span
+class=SpellE>xeno-ldflags</span>`</pre>
+
+<p>Finally, compile the ex01.c program against the 'native'&nbsp;library
+implementing the <span class=SpellE>Xenomai</span> Native <st1:stockticker>API</st1:stockticker>
+and the '<span class=SpellE>rtdk</span>' print library </p>
+
+<pre style='margin-left:24.0pt'><span lang=PT-BR style='mso-ansi-language:PT-BR'>&gt; gcc $CFLAGS $LDFLAGS<span style='mso-spacerun:yes'>  </span>-lnative -lrtdk<span style='mso-spacerun:yes'>  </span>ex01.c -o ex01<o:p></o:p></span></pre>
+
+<p class=MsoNormal>By default the executable 'ex01' is linked against the
+dynamic libraries in /<span class=SpellE>usr/xenomai/lib</span>. Because these
+are special and not known to <span class=SpellE>linux</span>, we first have to
+tell Linux where to find them by setting a library path&nbsp;environment <span
+class=GramE>variable :</span></p>
+
+<pre style='margin-left:24.0pt'>&gt; export LD_LIBRARY_<st1:stockticker>PATH</st1:stockticker>=/<span
+class=SpellE>usr/xenomai/lib</span></pre>
+
+<p class=MsoNormal>Than run the <span class=GramE>program :</span></p>
+
+<pre style='margin-left:24.0pt'><span class=GramE>&gt; .</span>/ex01</pre>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=3 width="100%" align=center>
+
+</div>
+
+<h2>Exercises</h2>
+
+<h3><span class=GramE>Exercise 1a.</span></h3>
+
+<p class=MsoNormal>Compile and run program ex01.c to get some basic experience
+in working with <span class=SpellE>Xenomai</span> tasks. First, try a manual
+build by compiling with the commands above. Next, try an automated the build
+with this <a href="Makefile"><span class=SpellE>Makefile</span></a> (using
+commands &quot;make&quot; and &quot;<span class=GramE>./</span>ex01&quot;). </p>
+
+<h3><span class=GramE>Exercise 1b.</span></h3>
+
+<p class=MsoNormal>  Introduce an error by commenting out the assignment to the current task as follows:</p>
+<pre style='margin-left:24.0pt'>//curtask=rt_task_self();</pre> </p>
+<p class=MsoNormal>Save the resulting program as ex01b.c
+Build and run this program, observe the result. </p>
+
+<p class=MsoNormal>Next introduce a return value for the 'rt_task_inquire' call and print the error code as described in the part about "Error handling" of the <a
+href="http://www.cs.ru.nl/lab/xenomai/tips.html">Tips page on the Xenomai pages of Robot Lab site</a>. </p>
+
+<p class=MsoNormal>Build and run the new version of the program. </p>
+
+
+
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=3 width="100%" align=center>
+
+</div>
+
+<p class=MsoNormal align=center style='text-align:center'>Last Updated: <st1:date
+Year="2009" Day="29" Month="8">22 August 2011</st1:date> (<span class=SpellE>Jozef</span>
+Hooman<span class=GramE>)</span><br>
+<em>Created by: </em><st1:PersonName><em>Harco Kuppens</em></st1:PersonName><br>
+<a href="mailto:H.Kuppens@cs.ru.nl">h.kuppens@cs.ru.nl</a> </p>
+
+</div>
+
+</body>
+
+</html>
